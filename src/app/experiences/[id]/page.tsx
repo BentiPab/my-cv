@@ -2,7 +2,7 @@ import ProjectExperienceLayout from "@/components/Layouts/ProjectExperienceLayou
 import { ExperienceService } from "@/services";
 import { formatDate } from "@/utils/date";
 import { parseToItems } from "@/utils/parsers";
-import { format } from "date-fns";
+import { format, isToday } from "date-fns";
 import Image from "next/image";
 
 const ExperiencePage = async ({ params }: { params: { id: string } }) => {
@@ -33,7 +33,9 @@ const ExperiencePage = async ({ params }: { params: { id: string } }) => {
       {projectScope && <div>Project Scope: {projectScope}</div>}
       {clientBusiness && <div>Client Business: {clientBusiness}</div>}
       <div>Start Date: {formatDate(startDate)}</div>
-      {endDate && <div>End Date: {formatDate(endDate)}</div>}
+      {endDate && !isToday(endDate) && (
+        <div>End Date: {formatDate(endDate)}</div>
+      )}
       {leaveReason && <div>Leave Reason: {leaveReason}</div>}
       {!!technologies?.length && (
         <div>Technologies: {technologies.join(", ") || "-"}</div>
