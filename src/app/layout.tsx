@@ -4,6 +4,7 @@ import "./globals.css";
 import WebNavbar from "@/components/Navbar/WebNavbar";
 import Navbar from "@/components/Navbar/Navbar";
 import Image from "next/image";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <Navbar />
           {children}
         </main>
+        <Analytics />
       </body>
     </html>
   );
