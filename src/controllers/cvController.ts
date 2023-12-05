@@ -7,13 +7,15 @@ const getBrowser = () =>
     ? puppeteer.connect({
         browserWSEndpoint: `wss://chrome.browserless.io?token=${process.env.BROWSERLESS_TOKEN}`,
       })
-    : puppeteer.launch();
+    : puppeteer.launch({ headless: "new" });
 
 export const createCV = async () => {
   const browser = await getBrowser();
   const page = await browser.newPage();
+  const file = path.join(process.cwd(), "public", "cv.html");
+  const stringified = readFileSync(file, "utf8");
 
-  await page.goto(`${process.env.CV_URL}`, {
+  await page.setContent(stringified, {
     waitUntil: "load",
   });
 
