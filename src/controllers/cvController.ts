@@ -1,6 +1,5 @@
 import puppeteer from "puppeteer";
 import fs from "fs";
-import getConfig from "next/config";
 import path from "path";
 
 export const createCV = async () => {
@@ -8,7 +7,11 @@ export const createCV = async () => {
     headless: "new",
   });
   const page = await browser.newPage();
-  const html = fs.readFileSync("public/cv.html", "utf8");
+  const html = fs.readFileSync(
+    path.join(process.cwd(), "public/cv.html"),
+    "utf8"
+  );
+
   await page.setContent(html, {
     waitUntil: "domcontentloaded",
   });
