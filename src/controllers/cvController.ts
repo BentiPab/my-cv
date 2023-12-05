@@ -1,11 +1,16 @@
-import puppeteer from "puppeteer";
+import puppeteer, { Browser } from "puppeteer";
 import fs from "fs";
 import path from "path";
 
+const getBrowser = () =>
+  process.env.NODE_ENV === "production"
+    ? puppeteer.connect({
+        browserWSEndpoint: `wss://chrome.browserless.io?token=${process.env.BROWSERLESS_TOKEN}`,
+      })
+    : puppeteer.launch();
+
 export const createCV = async () => {
-  const browser = await puppeteer.connect({
-    browserWSEndpoint: `wss://chrome.browserless.io?token=${process.env.BROWSERLESS_TOKEN}`,
-  });
+  const browser = await getBrowser();
   const page = await browser.newPage();
 
   await page.goto(`${process.env.NEXT_PUBLIC_BASE_URL}/cv.html`, {
@@ -13,7 +18,7 @@ export const createCV = async () => {
   });
 
   const pdf = await page.pdf({
-    format: "a4",
+    format: "A4",
     width: "21cm",
     height: "29.9cm",
   });
