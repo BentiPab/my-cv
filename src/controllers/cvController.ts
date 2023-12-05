@@ -12,7 +12,7 @@ const getBrowser = () =>
 export const createCV = async () => {
   const browser = await getBrowser();
   const page = await browser.newPage();
-  const file = path.resolve("cv.html");
+  const file = path.join(process.cwd(), "public", "cv.html");
   const stringified = readFileSync(file, "utf8");
 
   await page.setContent(stringified, {
