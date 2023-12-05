@@ -1,5 +1,6 @@
 import path from "path";
 import puppeteer from "puppeteer";
+import fs from "fs";
 
 const DownloadButton = async () => {
   const handlePdfCreate = async () => {
@@ -8,12 +9,13 @@ const DownloadButton = async () => {
     });
     const page = await browser.newPage();
 
-    await page.goto(
-      path.join(`${process.env.NEXT_PUBLIC_BASE_URL}`, "/cv.html"),
-      {
-        waitUntil: "domcontentloaded",
-      }
+    const data = fs.readFileSync(
+      path.join(process.cwd(), "src/components/Button/cv.html")
     );
+
+    await page.setContent(data.toString(), {
+      waitUntil: "load",
+    });
 
     const pdf = await page.pdf({
       format: "A4",
