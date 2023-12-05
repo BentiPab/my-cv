@@ -1,4 +1,6 @@
+import DownloadButton from "@/components/Button/DownloadButton";
 import ContactOptions from "@/components/ContactOptions/ContactOptions";
+import { CVService } from "@/services";
 import Image from "next/image";
 
 const Home = () => {
@@ -20,6 +22,7 @@ const Home = () => {
           A Fullstack Developer, looking to keep on learning and improving
           professionaly and personally
         </p>
+        <DownloadButton />
         <ContactOptions />
       </div>
     </section>

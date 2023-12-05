@@ -21,9 +21,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       backgroundColor: {
-        "status-progress": "yellow",
-        "status-finished": "rgb(0,255,0)",
-        "status-planned": "",
+        dodgerblue: "dodgerblue",
       },
       borderRadius: {
         50: "50%",

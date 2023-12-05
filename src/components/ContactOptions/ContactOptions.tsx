@@ -10,11 +10,7 @@ const ContactOptions = () => {
       <a target="_blank" href="https://wa.me/+5491166244102" rel="noreferrer">
         <WhatsAppIcon />
       </a>
-      <a
-        target="_blank"
-        href="https://telegram.me/pablobentivengo"
-        rel="noreferrer"
-      >
+      <a target="_blank" href="https://telegram.me/pelbax" rel="noreferrer">
         <TelegramIcon />
       </a>
       <a
