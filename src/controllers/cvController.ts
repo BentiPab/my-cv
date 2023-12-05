@@ -12,7 +12,8 @@ const getBrowser = () =>
 export const createCV = async () => {
   const browser = await getBrowser();
   const page = await browser.newPage();
-  const stringified = readFileSync("/cv.html", "utf8");
+  const file = path.join(process.cwd(), "cv", "cv.html");
+  const stringified = readFileSync(file, "utf8");
 
   await page.setContent(stringified, {
     waitUntil: "load",
