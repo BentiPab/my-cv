@@ -22,6 +22,8 @@ export const basicPost = async <returnType>(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/${endpoint}`,
     { body: undefined, method: "POST", cache: "no-store" }
   );
+
+  console.log(res);
   if (!res.ok) {
     redirect("/not-found");
   }
