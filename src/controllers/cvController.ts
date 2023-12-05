@@ -7,10 +7,8 @@ export const createCV = async () => {
     headless: "new",
   });
   const page = await browser.newPage();
-  const html = fs.readFileSync(
-    path.join(process.cwd(), "/src/controllers/cv.html"),
-    "utf8"
-  );
+
+  const html = fs.readFileSync(path.resolve("./public", "cv.html"), "utf8");
 
   await page.setContent(html, {
     waitUntil: "domcontentloaded",

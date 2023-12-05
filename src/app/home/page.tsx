@@ -2,19 +2,18 @@ import DownloadButton from "@/components/Button/DownloadButton";
 import ContactOptions from "@/components/ContactOptions/ContactOptions";
 import { CVService } from "@/services";
 import Image from "next/image";
+import profile from "../../../public/profile.jpg";
 
 const Home = () => {
   return (
     <section className="flex flex-col items-center px-14 justify-evenly lg:py-10 h-full gap-3 lg:gap-10">
       <div className="w-[200px] rounded-50 h-[200px] max-h-[200px]  relative">
         <Image
-          src="/profile.jpg"
-          alt="Vercel Logo"
+          src={profile}
+          alt="Pablo Bentivengo profile"
           className="rounded-50 object-cover"
           fill
           placeholder="blur"
-          blurDataURL="/profile-low.jpg"
-          priority
         />
       </div>
       <div className="flex flex-col items-center font-semibold gap-3 lg:gap-5 text-center">
