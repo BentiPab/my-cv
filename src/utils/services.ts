@@ -20,7 +20,7 @@ export const basicPost = async <returnType>(
 ): Promise<returnType> => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/${endpoint}`,
-    { next: { revalidate: 5000 }, body: undefined, method: "POST" }
+    { body: undefined, method: "POST", cache: "no-store" }
   );
   if (!res.ok) {
     redirect("/not-found");

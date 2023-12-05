@@ -69,6 +69,9 @@ const AboutMePage = () => {
           alt={"Pablo Bentivengo"}
           fill
           className="rounded-lg object-cover"
+          priority
+          placeholder="blur"
+          blurDataURL="/me-low.jpg"
         />
       </div>
       <div className="flex flex-col  lg:items-start gap-5">

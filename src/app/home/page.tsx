@@ -12,6 +12,8 @@ const Home = () => {
           alt="Vercel Logo"
           className="rounded-50 object-cover"
           fill
+          placeholder="blur"
+          blurDataURL="/profile-low.jpg"
           priority
         />
       </div>
