@@ -12,18 +12,22 @@ const getBrowser = () =>
 export const createCV = async () => {
   const browser = await getBrowser();
   const page = await browser.newPage();
+  const file = path.join(process.env.NEXT_PUBLIC_BASE_URL!, "/cv.html");
+  const stringified = readFileSync(file, "utf8");
 
-  await page.goto(process.env.CV_URL!, {
+  await page.goto(stringified, {
     waitUntil: "load",
   });
 
-  const pdf = await page.pdf({
-    format: "A4",
-    width: "21cm",
-    height: "29.9cm",
-  });
+  const img = await page.screenshot();
 
-  const pdfBytes64 = pdf.toString("base64");
+  // const pdf = await page.pdf({
+  //   format: "A4",
+  //   width: "21cm",
+  //   height: "29.9cm",
+  // });
+
+  const pdfBytes64 = img.toString("base64");
 
   // close the browser
   await browser.close();
