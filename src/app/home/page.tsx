@@ -14,9 +14,7 @@ const Home = async () => {
     });
     const page = await browser.newPage();
 
-    const html = fs.readFileSync(path.resolve("./public/cv.html"), "utf8");
-
-    await page.setContent(html, {
+    await page.goto(`${process.env.NEXT_PUBLIC_BASE_URL}/cv.html`, {
       waitUntil: "domcontentloaded",
     });
 

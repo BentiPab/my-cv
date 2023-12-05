@@ -23,7 +23,7 @@ const DownloadButton = ({ handleClick }: Props) => {
         setLoading(false);
       }}
     >
-      Download My CV
+      {loading ? "Downloading CV..." : "Download My CV"}
     </button>
   );
 };
