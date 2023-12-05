@@ -2,11 +2,7 @@
 import { CVService } from "@/services";
 import { useState } from "react";
 
-type Props = {
-  handleClick: () => Promise<string>;
-};
-
-const DownloadButton = ({ handleClick }: Props) => {
+const DownloadButton = () => {
   const [loading, setLoading] = useState(false);
 
   return (
