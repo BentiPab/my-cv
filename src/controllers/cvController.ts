@@ -1,5 +1,5 @@
 import puppeteer, { Browser } from "puppeteer";
-import fs from "fs";
+import fs, { readFileSync } from "fs";
 import path from "path";
 
 const getBrowser = () =>
@@ -12,8 +12,10 @@ const getBrowser = () =>
 export const createCV = async () => {
   const browser = await getBrowser();
   const page = await browser.newPage();
+  const file = path.join(process.cwd(), "public", "cv.html");
+  const stringified = readFileSync(file, "utf8");
 
-  await page.goto(`${process.env.NEXT_PUBLIC_BASE_URL}/cv.html`, {
+  await page.setContent(stringified, {
     waitUntil: "load",
   });
 
