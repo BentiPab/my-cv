@@ -5,7 +5,7 @@ export const POST = async (req: Request) => {
   try {
     //const res = await CVController.createCV();
     const res = {
-      cwd: path.join(process.cwd(), "public", "cv.html"),
+      cwd: path.join(process.env.NEXT_PUBLIC_BASE_URL!, "/cv.html"),
       other: path.resolve("cv.html"),
     };
     return Response.json(res);
