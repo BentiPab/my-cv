@@ -8,7 +8,10 @@ export const createCV = async () => {
   });
   const page = await browser.newPage();
 
-  const html = fs.readFileSync(path.resolve("./public/cv.html"), "utf8");
+  const html = fs.readFileSync(
+    path.join(`${process.env.NEXT_PUBLIC_BASE_URL}/cv.html`),
+    "utf8"
+  );
 
   await page.setContent(html, {
     waitUntil: "domcontentloaded",
