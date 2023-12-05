@@ -1,5 +1,4 @@
 "use client";
-import { CVService } from "@/services";
 import { useState } from "react";
 
 type Props = {

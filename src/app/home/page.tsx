@@ -1,6 +1,5 @@
 import DownloadButton from "@/components/Button/DownloadButton";
 import ContactOptions from "@/components/ContactOptions/ContactOptions";
-import { CVService } from "@/services";
 import Image from "next/image";
 import profile from "../../../public/profile.jpg";
 import path from "path";
