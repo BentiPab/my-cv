@@ -8,7 +8,7 @@ export const createCV = async () => {
   });
   const page = await browser.newPage();
   const html = fs.readFileSync(
-    path.join(process.cwd(), "public/cv.html"),
+    path.join(process.cwd(), "/src/controllers/cv.html"),
     "utf8"
   );
 
