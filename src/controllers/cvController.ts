@@ -1,15 +1,10 @@
 import puppeteer from "puppeteer";
 import fs from "fs";
 import path from "path";
-import chromium from "@sparticuz/chromium";
 
 export const createCV = async () => {
-  const browser = await puppeteer.launch({
-    args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath(),
-    headless: chromium.headless,
-    ignoreHTTPSErrors: true,
+  const browser = await puppeteer.connect({
+    browserWSEndpoint: `wss://chrome.browserless.io?token=${process.env.BROWSERLESS_TOKEN}`,
   });
   const page = await browser.newPage();
 
