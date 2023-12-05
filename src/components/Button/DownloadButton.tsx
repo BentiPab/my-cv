@@ -2,7 +2,11 @@
 import { CVService } from "@/services";
 import { useState } from "react";
 
-const DownloadButton = () => {
+type Props = {
+  handleClick: () => Promise<string>;
+};
+
+const DownloadButton = ({ handleClick }: Props) => {
   const [loading, setLoading] = useState(false);
 
   return (
@@ -12,7 +16,7 @@ const DownloadButton = () => {
       onClick={async (e) => {
         setLoading(true);
         e.preventDefault();
-        const data = await CVService.fetchCVDocument();
+        const data = await handleClick();
         const link = document.createElement("a");
         link.href = data;
         link.download = `CV Pablo Bentivengo.pdf`;

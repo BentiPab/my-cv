@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async rewrites() {
+    return [
+    {
+      source: "/public/cv.html",
+      destination: "/pages/api/cv.js",
+    },
+  ]},
     async redirects() {
         return [
           {
