@@ -6,6 +6,6 @@ export const POST = async (req: Request) => {
 
     return Response.json(res);
   } catch (e) {
-    return Response.json((e as Error).message);
+    return Response.json(e as Error);
   }
 };
