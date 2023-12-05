@@ -1,11 +1,15 @@
 import puppeteer from "puppeteer";
 import fs from "fs";
-import getConfig from "next/config";
 import path from "path";
+import chromium from "@sparticuz/chromium";
 
 export const createCV = async () => {
   const browser = await puppeteer.launch({
-    headless: "new",
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath(),
+    headless: chromium.headless,
+    ignoreHTTPSErrors: true,
   });
   const page = await browser.newPage();
 
@@ -18,7 +22,7 @@ export const createCV = async () => {
   });
 
   const pdf = await page.pdf({
-    format: "A4",
+    format: "a4",
     width: "21cm",
     height: "29.9cm",
   });
