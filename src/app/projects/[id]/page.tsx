@@ -37,7 +37,12 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
       <div>
         Repo:{" "}
         {repo ? (
-          <a className="text-blue-600" href={repo}>
+          <a
+            className="text-blue-600"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={repo}
+          >
             Repo Link
           </a>
         ) : (

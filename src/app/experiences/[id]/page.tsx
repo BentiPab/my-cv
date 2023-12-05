@@ -47,7 +47,13 @@ const ExperiencePage = async ({ params }: { params: { id: string } }) => {
           {relatedLinks.map((rl, i) => {
             const isLast = relatedLinks.length === i + 1;
             return (
-              <a className="text-blue-700" key={rl} href={rl}>
+              <a
+                className="text-blue-700"
+                target="_blank"
+                rel="noopener noreferrer"
+                key={rl}
+                href={rl}
+              >
                 Link {i + 1}
                 {!isLast && ", "}
               </a>
