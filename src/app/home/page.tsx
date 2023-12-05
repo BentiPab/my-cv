@@ -14,9 +14,11 @@ const Home = async () => {
     });
     const page = await browser.newPage();
 
-    const data = fs.readFileSync(path.join(process.cwd(), "src/cv.html"));
+    const data = fs.readFileSync(path.resolve("src/cv.html"), {
+      encoding: "utf-8",
+    });
 
-    await page.setContent(data.toString(), {
+    await page.setContent(data, {
       waitUntil: "load",
     });
 
