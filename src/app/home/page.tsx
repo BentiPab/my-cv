@@ -2,9 +2,6 @@ import DownloadButton from "@/components/Button/DownloadButton";
 import ContactOptions from "@/components/ContactOptions/ContactOptions";
 import Image from "next/image";
 import profile from "../../../public/profile.jpg";
-import path from "path";
-import puppeteer from "puppeteer";
-import fs from "fs";
 
 const Home = () => {
   return (
