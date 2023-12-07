@@ -1,5 +1,5 @@
 "use client";
-import { CVService, UpdateService } from "@/services";
+import { CVService } from "@/services";
 import { useState } from "react";
 
 const DownloadButton = () => {
@@ -12,7 +12,6 @@ const DownloadButton = () => {
       onClick={async (e) => {
         setLoading(true);
         e.preventDefault();
-        await UpdateService.sendNewCVDownload();
         const data = await CVService.fetchCVDocument();
         const link = document.createElement("a");
         link.href = data;
