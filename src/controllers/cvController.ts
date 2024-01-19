@@ -1,5 +1,5 @@
-import puppeteer, { Browser } from "puppeteer";
-import fs, { readFileSync } from "fs";
+import puppeteer from "puppeteer";
+import { readFileSync } from "fs";
 import path from "path";
 
 const getBrowser = () =>
