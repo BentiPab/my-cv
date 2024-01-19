@@ -1,5 +1,6 @@
 import Image from "next/image";
 import me from "../../../public/me.jpg";
+import { differenceInYears } from "date-fns";
 
 const AboutMePage = () => {
   const hobbies = [
@@ -26,6 +27,7 @@ const AboutMePage = () => {
       level: "Intermediate",
     },
   ];
+  const age = differenceInYears(new Date(), new Date("07/30/1996"));
   return (
     <section className="py-5 px-6 lg:px-14  lg:grid lg:grid-cols-2 lg:gap-y-10 lg:justify-items-center flex flex-col items-center gap-3">
       <div className="w-[200px] h-[300px] lg:w-[300px] lg:h-[500px] relative rounded-lg">
@@ -45,7 +47,7 @@ const AboutMePage = () => {
           <b>Birth Date:</b> 30 July 1996
         </div>
         <div>
-          <b>Age:</b> {new Date().getFullYear() - 1996}
+          <b>Age:</b> {age}
         </div>
         <div>
           <b>Nationality:</b> Argentine-Italian
