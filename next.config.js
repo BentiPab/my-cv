@@ -10,9 +10,9 @@ const nextConfig = {
     async redirects() {
         return [
           {
-            source: '/',
-            destination: '/home',
-            permanent: true,
+            source: '/:path*',
+           destination: 'https://www.pablo-bentivengo.com.ar/:path*',
+        permanent: true,
           },
         ]
       }
